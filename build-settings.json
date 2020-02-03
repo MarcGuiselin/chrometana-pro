@@ -1,0 +1,23 @@
+{
+    "version": "1.6",
+    "browsers": {
+        "chrome": {
+            "name": "Chrometana Pro",
+            "browserpage": "https://chrome.google.com/webstore/detail/chrometana-redirect-bing/lllggmgeiphnciplalhefnbpddbadfdi/reviews",
+            "browser": "Google Chrome",
+            "maincolor": "#4285F4",
+            "rundownloaddirection": "Double click on the installer to run it",
+            "downloadfix": "download",
+            "manifestappend": ""
+        },
+        "firefox": {
+            "name": "Foxtana Pro",
+            "browserpage": "https://addons.mozilla.org/en-US/firefox/addon/foxtana-pro-redirect-cortana",
+            "browser": "Firefox",
+            "maincolor": "#F48742",
+            "rundownloaddirection": "Click on the installer to run it",
+            "downloadfix": "target=\"_blank\"",
+            "manifestappend": "\"applications\": {\"gecko\": {\"id\": \"extension@foxtana.com\", \"strict_min_version\": \"42.0\"}},"
+        }
+    }
+}

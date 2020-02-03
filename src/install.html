@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Welcome to <%= name %>!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <div id="version"></div>
+    <div id="copyright">Copyright &copy; <span>2018</span> Marc Guiselin</div>
+    <div id="content">
+        <img src="images/logo.png" id="logo" draggable="false"/>
+        <h1>Getting Started</h1>
+        <div class="separator"></div>
+        <h3><%= name %> has successfully been installed, but it can't fully work yet!</h3>
+        <h4 class="read-text">In order for Cortana to use <%= browser %>, please follow the instructions below:</h4>
+        <div class="separator"></div>
+        <h3>First, set <%= browser %> as your default browser</h3>
+        <ol>
+            <li>
+                Type "Default app settings" in the windows search box and hit enter
+                <img src="images/tutorial 1.png"/>
+            </li>
+            <li>
+                Click Microsoft Edge under the "Web browser" heading in the opened window
+                <img src="images/tutorial 2.png"/>
+            </li>
+            <li>
+                Click <%= browser %> under "Choose an app"
+                <img src="images/tutorial 3.png"/>
+            </li>
+            <li>
+                You can now close the "Default apps" window
+            </li>
+        </ol>
+        <div class="separator"></div>
+        <h3>Second, install Edge Deflector</h3>
+        <p>Edge Deflector is an open source application (Not affiliated to <%= name %>) that forces cortana to use your default browser (which now should be <%= browser %>).</p>
+        <ol>
+            <li>
+                Download the installer by clicking the link on the right: <a href="https://guiselin.com/EdgeDeflector_install.exe" <%= downloadfix %>>download</a>.
+                <div class="half-size">Alternatively you can download it from the github repository <a href="https://github.com/da2x/EdgeDeflector" target="_blank">here</a>.</div>
+            </li>
+            <li>
+                <%= rundownloaddirection %>
+                <img src="images/tutorial 4.png"/>
+            </li>
+            <li>
+                Click install
+                <img src="images/tutorial 5.png"/>
+            </li>
+            <li>
+                When prompted with what program to open cortana searches with, select "Edge Deflector" and press ok
+                <img src="images/tutorial 6.png"/>
+            </li>
+        </ol>
+        <h3>That's it!</h3>
+    </div>
+    <script src="js/common.js"></script>
+</body>
+</html>

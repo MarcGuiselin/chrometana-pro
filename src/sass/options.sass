@@ -1,0 +1,319 @@
+@import "variables"
+
+
+@mixin no-select
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+
+
+#content
+    &:not(.show)>*:not(#logo)
+        visibility: hidden
+    &.disabled .hide-when-disabled
+        display: none
+
+
+
+$arrow-thickness: 6px
+$arrow-line-length: 60px
+$arrow-pointer-length: 16px
+$arrow-color: $main-col
+$plus-sign-size: 26px
+
+#redirect-visual
+    @include no-select
+    margin-top: 1em
+    & > *:not(.text-input)
+        vertical-align: middle
+        filter: drop-shadow($text-shadow)
+    #click-to-change-cortana-bing
+        display: inline-block
+        cursor: pointer
+        & > *
+            vertical-align: middle
+    #search-logo
+        cursor: pointer
+    #bing-plus-cortana
+        position: relative
+        display: inline-block
+        width: $plus-sign-size
+        height: $plus-sign-size
+        &:before, &:after
+            content: ""
+            display: block
+            height: $arrow-thickness
+            width: 100%
+            position: absolute
+            top: $plus-sign-size / 2 - $arrow-thickness / 2
+            background: $arrow-color
+        &:after
+            transform-origin: center
+            transform: rotate(90deg)
+    #arrow
+        position: relative
+        display: inline-block
+        width: $arrow-line-length
+        background: $arrow-color
+        height: $arrow-thickness
+        margin-right: $arrow-thickness/2
+        &:before
+            position: absolute
+            content: ""
+            display: block
+            border: $arrow-thickness solid $arrow-color
+            height: $arrow-pointer-length
+            width: $arrow-pointer-length
+            border-bottom-width: 0
+            border-left-width: 0
+            transform: rotate(45deg)
+            transform-origin: top right
+            right: - $arrow-thickness / 2
+            top: $arrow-thickness / 2
+
+
+
+
+.pretty-checkbox
+    @include no-select
+    display: inline-block
+    overflow: hidden
+    padding: .1em
+    color: $input-col
+    &:hover
+        background: $input-hover-bg
+    &.enable-animation > input
+        + label > span
+            transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1), background-size 100ms
+        &:checked + label > span
+            animation: checkbox-shrink-bounce 200ms cubic-bezier(0.4, 0, 0.23, 1)
+            &:before
+                animation: checkbox-check 125ms 250ms cubic-bezier(0.4, 0, 0.23, 1) forwards
+    & > input
+        display: none
+        + label
+            position: relative
+            display: flex
+            align-items: center
+            box-sizing: border-box
+            cursor: pointer
+            > span
+                display: flex
+                box-sizing: border-box
+                justify-content: center
+                align-items: center
+                margin-right: .5em
+                width: 1em
+                height: 1em
+                background: transparent
+                border: 2px solid $input-col
+                cursor: pointer
+                font: 1.4em sans-serif
+                animation: checkbox-shrink-bounce 0ms linear
+            &:hover > span
+                border-color: $main-col
+        &:checked + label > span
+            border: .5em solid $main-col
+            &:before
+                content: ''
+                position: absolute
+                top: .4em
+                left: .2em
+                border-right: .12em solid transparent
+                border-bottom: .12em solid transparent
+                transform: rotate(45deg)
+                transform-origin: 0% 100%
+                animation: checkbox-check 0ms 0ms linear forwards
+@keyframes checkbox-shrink-bounce
+    0%
+        transform: scale(1)
+    33%
+        transform: scale(0.8)
+    100%
+        transform: scale(1)
+@keyframes checkbox-check
+    0%
+        width: 0
+        height: 0
+        border-color: white
+        transform: translate3d(0, 0, 0) rotate(45deg)
+    33%
+        width: .2em
+        height: 0
+        transform: translate3d(0, 0, 0) rotate(45deg)
+    100%
+        width: .2em
+        height: .5em
+        border-color: white
+        transform: translate3d(0, -0.5em, 0) rotate(45deg)
+
+
+
+.dropdown
+    @include no-select
+    position: relative
+    display: inline-block
+    text-align: left
+    min-width: 140px
+    color: $input-col
+    .dropdown-text
+        cursor: pointer
+        position: relative
+        width: 100%
+        text-indent: 10px
+        line-height: 42px
+        border-bottom: 1px solid #d8d8d8
+        margin-right: 1em
+        &:after
+            position: absolute
+            right: 6px
+            top: 20px
+            content: ''
+            width: 0px
+            height: 0px
+            border-style: solid
+            border-width: 7px 6px 0 6px
+            border-color: #555 transparent transparent transparent
+    .dropdown-input
+        font-size: 0
+        outline: none !important
+        z-index: 1
+        cursor: pointer
+        position: absolute
+        top: 0
+        border: none
+        padding: 0
+        margin: 0 0 0 1px
+        background: transparent
+        text-indent: -10px
+        height: 100%
+        width: 100%
+        &:hover ~ .dropdown-text
+            background: $input-hover-bg
+        &:focus ~ .dropdown-text
+            z-index: 2
+            &:after
+                border-width: 0 6px 7px 6px
+                border-color: transparent transparent #555 transparent
+    ul
+        transition: all .2s ease
+        list-style-type: none
+        position: absolute
+        top: 30px
+        padding: 4px 0px 4px 0px
+        margin: 0
+        opacity: 0
+        visibility: hidden
+        text-indent: 10px
+        line-height: 42px
+        background: white
+        border: 1px solid #ccc
+        box-sizing: border-box
+        min-width: 100%
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
+        transform: scale(0.8, 0.8)
+        z-index: 10
+        li
+            cursor: pointer
+            position: relative
+            white-space: nowrap
+            padding-right: 10px
+            &:hover
+                background: $input-hover-bg
+            &:after
+                content: ''
+                background: $main-col
+                position: absolute
+                width: 2px
+                height: auto
+                left: -1px
+                top: 50%
+                bottom: 50%
+                transition: .2s
+            &:hover:after, &.selected:after
+                top: 0
+                bottom: 0
+    .dropdown-input:focus ~ ul
+        opacity: 1
+        visibility: visible
+        top: 43px
+        transform: scale(1, 1)
+    .dropdown-input:focus ~ .dropdown-text:before,
+    .dropdown-input:hover ~ .dropdown-text:before
+        animation: dropdown-flip .4s 1
+        animation-fill-mode: forwards
+    &.enable-animation .dropdown-text:before
+        content: ''
+        background: $main-col
+        position: absolute
+        right: 100%
+        left: 0
+        bottom: -1px
+        width: auto
+        height: 2px
+        animation: dropdown-flop .4s 1
+@keyframes dropdown-flip
+    0%
+        right: 100%
+
+    100%
+        right: 0
+@keyframes dropdown-flop
+    0%
+        right: 0
+        left: 0
+
+    100%
+        right: 0
+        left: 100%
+
+
+
+.text-input
+    width: fit-content
+    position: relative
+    display: inline-block
+    input
+        color: #333
+        box-sizing: border-box
+        letter-spacing: 1px
+        background: transparent
+        border: 0
+        padding: 7px 4px
+        border-bottom: 1px solid #ccc
+        outline: none
+        font-size: 75%
+        min-width: 300px
+        &:hover
+            background: $input-hover-bg
+        &:hover ~ span,
+        &:focus ~ span
+            animation: flip .4s 1
+            animation-fill-mode: forwards
+    span
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 100%
+        width: auto
+        height: 2px
+        background: $main-col
+        transition: 0.4s
+    &.enable-animation span
+        animation: flop .4s 1
+@keyframes flip
+    0%
+        right: 100%
+    100%
+        right: 0
+@keyframes flop
+    0%
+        right: 0
+        left: 0
+    100%
+        right: 0
+        left: 100%
