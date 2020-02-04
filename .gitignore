@@ -5,3 +5,5 @@ node_modules
 *.zip
 Assets
 dest
+
+/edge-deflector/EdgeDeflector.exe
