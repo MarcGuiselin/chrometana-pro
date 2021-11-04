@@ -1,7 +1,7 @@
 {
   "name": "chrometana-chrome-extension",
   "description": "NA",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "license": "MIT",
   "private": true,
   "scripts": {
