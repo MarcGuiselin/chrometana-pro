@@ -4,8 +4,17 @@
   "version": "0.0.1",
   "license": "UNLICENSED",
   "private": true,
+  "scripts": {
+    "dev": "yarn watch-chrome",
+    "build": "yarn build-chrome",
+    "build-chrome": "grunt build-chrome",
+    "build-firefox": "grunt build-firefox",
+    "watch-chrome": "grunt watch-chrome",
+    "watch-firefox": "grunt watch-firefox"
+  },
   "devDependencies": {
     "grunt": "latest",
+    "grunt-cli": "^1.4.3",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
