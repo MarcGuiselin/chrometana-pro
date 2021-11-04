@@ -3,6 +3,7 @@ const sass = require('node-sass');
 module.exports = function(grunt) {
 
     let settings = grunt.file.readJSON("build-settings.json");
+    settings.version = grunt.file.readJSON("package.json").version;
 
     // Project configuration.
     grunt.initConfig({
