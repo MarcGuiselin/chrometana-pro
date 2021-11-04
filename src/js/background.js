@@ -9,7 +9,8 @@ var data = {
 
 
 
-//process a bing url and return the urtl to redirect to
+//process a bing url and return the url to redirect to
+//if the page doesn't need redirecting, return undefined because returning the same url will error out on firefox
 function redirectBingUrl(url){
     //on a successful installation of edgedeflector, show the success page
     if(/https?:\/\/(www\.)?bing\.com\/search\?successfuledgedeflectorinstall/i.test(url))
@@ -76,7 +77,7 @@ chrome.storage.onChanged.addListener(changes => {
 //redirect bing searches using the onBeforeRequest api
 chrome.webRequest.onBeforeRequest.addListener(
     details => ({
-        redirectUrl: redirectBingUrl(details.url) || details.url
+        redirectUrl: redirectBingUrl(details.url)
     }),
     {
         urls: ["*://*.bing.com/*"],
