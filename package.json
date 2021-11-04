@@ -2,7 +2,7 @@
   "name": "chrometana-chrome-extension",
   "description": "NA",
   "version": "1.7.0",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "yarn watch-chrome",
