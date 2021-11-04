@@ -1,3 +1,5 @@
+const sass = require('node-sass');
+
 module.exports = function(grunt) {
 
     let settings = grunt.file.readJSON("build-settings.json");
@@ -8,6 +10,7 @@ module.exports = function(grunt) {
 
         sass: {
             options: {
+                implementation: sass,
                 sourcemap: "none"
             },
             default: {
@@ -77,7 +80,7 @@ module.exports = function(grunt) {
     });
 
     // Load Grunt plugins
-    grunt.loadNpmTasks("grunt-contrib-sass");
+    grunt.loadNpmTasks("grunt-sass");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-copy");
