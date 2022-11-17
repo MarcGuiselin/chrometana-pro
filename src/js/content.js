@@ -2,7 +2,7 @@
 // So message the background page until it responds with a redirect url
 
 // Interval had to be added because in testing background page might not respond the first time
-var pingInterval = setInterval(getRedirectUrl, 300);
+let pingInterval = setInterval(getRedirectUrl, 300);
 getRedirectUrl();
 
 function getRedirectUrl(){
