@@ -13,13 +13,13 @@
     "watch-firefox": "grunt watch-firefox"
   },
   "devDependencies": {
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.3",
     "grunt-cli": "^1.4.3",
-    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^3.1.0",
-    "grunt-string-replace": "^1.3.1",
-    "node-sass": "^6.0.1"
+    "grunt-string-replace": "^1.3.3",
+    "node-sass": "^8.0.0"
   }
 }
