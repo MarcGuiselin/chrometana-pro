@@ -1,29 +1,19 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "<%= name %> - Redirect Cortana and Bing",
     "short_name": "<%= name %>",
     "description": "Force Windows 10 and Cortana to use <%= browser %> and your favorite search engine instead of Bing!",
     "version": "<%= version %>",
     "permissions": [
         "storage",
-        "*://*.bing.com/*",
-        "webRequest",
-        "webRequestBlocking"
+        "declarativeNetRequest"
+    ],
+    "host_permissions": [
+        "*://*.bing.com/*"
     ],
     "background": {
-        "scripts": ["js/background.js"],
-        "persistent": true
+        "service_worker": "js/background.js"
     },
-    "content_scripts": [{
-        "js": [
-            "js/content.js"
-        ],
-        "matches": [
-            "*://*.bing.com/*"
-        ],
-        "run_at": "document_start"
-    }],
-    "web_accessible_resources": ["success.html"],
     "options_ui": {
 		"page": "options.html",
 		"open_in_tab": true
@@ -35,7 +25,7 @@
 		"128": "icons/128.png"
     },
     <%= manifestappend %>
-    "browser_action": {
+    "action": {
         "browser_style": true,
 		"default_icon": {
 			"16": "icons/16.png",

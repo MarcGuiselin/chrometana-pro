@@ -7,7 +7,7 @@
             "maincolor": "#4285F4",
             "rundownloaddirection": "Double click on the installer to run it",
             "downloadfix": "download",
-            "manifestappend": ""
+            "manifestappend": "\"minimum_chrome_version\": \"101\","
         },
         "firefox": {
             "name": "Foxtana Pro",
@@ -16,7 +16,7 @@
             "maincolor": "#F48742",
             "rundownloaddirection": "Click on the installer to run it",
             "downloadfix": "target=\"_blank\"",
-            "manifestappend": "\"applications\": {\"gecko\": {\"id\": \"extension@foxtana.com\", \"strict_min_version\": \"42.0\"}},"
+            "manifestappend": "\"applications\": {\"gecko\": {\"id\": \"extension@foxtana.com\", \"strict_min_version\": \"107.0\"}},"
         }
     }
 }
