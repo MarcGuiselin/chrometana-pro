@@ -3,29 +3,27 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title><%= name %> Settings</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i|Montserrat:300,500" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/options.css">
 </head>
 <body>
     <div id="version"></div>
     <div id="copyright">Copyright &copy; <span>2018</span> Marc Guiselin</div>
     <div id="content">
-        <img src="images/logo.png" id="logo" draggable="false"/>
         <h1><%= name %> Settings</h1>
         <div class="separator"></div>
         <div class="pretty-checkbox">
-            <input id='enabled' type='checkbox' />
-            <label for='enabled'>
+            <input id="enabled" type="checkbox" />
+            <label for="enabled">
                 <span></span>
                 Enabled
             </label>
         </div>
         <div class="hide-when-disabled">
             <div class="static-size">
-                <div id="cortana-bing" class='dropdown'>
-                    <input class='dropdown-input' type='text'/>
-                    <div class='dropdown-text'>&nbsp;</div>
+                <div id="cortana-bing" class="dropdown">
+                    <input class="dropdown-input" type="text"/>
+                    <div class="dropdown-text">&nbsp;</div>
                     <ul>
                         <li value=0>Cortana and Bing</li>
                         <li value=1>Cortana</li>
@@ -35,9 +33,9 @@
             </div>
             to
             <div class="static-size left">
-                <div id="search-engine" class='dropdown'>
-                    <input class='dropdown-input' type='text'/>
-                    <div class='dropdown-text'>&nbsp;</div>
+                <div id="search-engine" class="dropdown">
+                    <input class="dropdown-input" type="text"/>
+                    <div class="dropdown-text">&nbsp;</div>
                     <ul>
                         <li value=0>Google</li>
                         <li value=1>DuckDuckGo</li>
@@ -55,7 +53,7 @@
                 <img id="cortana-logo" src="images/cortana.png" draggable="false"/>
             </div>
             <div id="arrow"></div>
-            <img id="search-logo" src="images/google.png" title="click to change" draggable="false"/>
+            <img id="search-logo" src="" title="click to change" draggable="false"/>
             <div id="custom-search" class="text-input">
                 <input placeholder="example.com/search?q=">
                 <span></span>
@@ -63,7 +61,7 @@
         </div>
         <div class="separator"></div>
         <h2><%= name %> has redirected <span id="count">0 searches</span>!</h2>
-        <h4><a href="<%= browserpage %>">Consider leaving us a 5 star review :)</a></h4>
+        <h4><a href="<%= browserpage %>">Consider leaving us a 5 star review &#x1F642;</a></h4>
     </div>
     <script src="js/common.js"></script>
     <script src="js/options.js"></script>

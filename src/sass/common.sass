@@ -1,15 +1,25 @@
 @import "variables"
 
-@mixin no-select
-    -webkit-touch-callout: none
-    -webkit-user-select: none
-    -khtml-user-select: none
-    -moz-user-select: none
-    -ms-user-select: none
-    user-select: none
+// Pretty background
+
+body
+    &:before, &:after
+        content: ''
+        display: block
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    &:after
+        z-index: -2
+        background: linear-gradient(to right, $theme1, $theme2) !important
+    &:before
+        z-index: -1
+        background: linear-gradient(to bottom, rgba($theme3, 0), $theme3) !important
 
 
-// standard multi-use classes
+// Standard multi-use classes
 html, body
     width: 100%
     height: 100%
@@ -22,31 +32,59 @@ body
     color: $main-col
     overflow-x: auto
     overflow-y: auto
-body, input
     font-family: 'Open Sans', sans-serif
     font-size: 24px
+    font-weight: 300
 
+h1
+    font-weight: 500 !important
 h1, h2, h3, h4, h5, h6
-    font-weight: normal
+    font-weight: 500
     margin: 0
+    font-family: montserrat
+b
+    font-weight: 600
 a
     color: $main-col
-#content > ol, #content > ul, p
+ol, ul, p
     color: $read-text
     text-align: left
+ol
+    list-style: none
+    counter-reset: ol-counter
+    li
+        position: relative
+        counter-increment: ol-counter
+        &:before
+            content: counter(ol-counter) "."
+            z-index: 2
+            position: absolute
+            left: -1.2em
+            top: -.125em
+            color: $main-col
+            font-weight: 400
+            font-size: 1.25em
 .read-text
     color: $read-text
+    font-family: Open Sans
+    font-weight: 400
 li img
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4)
-    margin: .6em
+    box-shadow: $img-shadow
+    margin: 0.6em 0 1.2em 0
     display: block
+    border-radius: $border-radius
+.center
+    text-align: center
 .half-size
     font-size: 60%
+    padding: .5em 0
 .separator
-    background: $main-col
-    height: 1px
+    background: linear-gradient(to right, $theme3, $theme1)
+    height: 3px
     width: 150px
-    margin: 1em auto
+    margin: 1.2em auto 1.6em
+    border-radius: 3px 0
+    opacity: .3
 .static-size
     display: inline-block
     width: 280px
@@ -54,17 +92,27 @@ li img
     &.left
         text-align: left
 
-// page resizing
+
+// Page resizing
 @media screen and (max-width: 1700px)
     #content
-        margin-top: 2em
-@media screen and (max-width: 1200px)
+        width: 800px !important
+        //margin-top: 2em
     body, input
         font-family: 'Open Sans', sans-serif
         font-size: 18px
+    #version, #copyright
+        font-size: 16px !important
+    .half-size
+        font-size: 75%
+@media screen and (max-width: 1300px)
+    #content
+        margin-top: 2em
+        min-height: calc(100% - 2em) !important
+        animation: none !important
 
 
-// common page elements
+// Common page elements
 #version, #copyright
     position: absolute
     top: 0
@@ -75,6 +123,7 @@ li img
     right: 0
 
 #content
+    z-index: 3
     text-align: center
     display: inline-block
     min-height: 100%
@@ -82,21 +131,384 @@ li img
     width: 1150px
     min-width: 800px
     max-width: 100%
-    padding: 0 1em 1.3em 1em
+    padding: 1em 1em 2em 1em
     box-sizing: border-box
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, .3)
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .3)
     text-shadow: $text-shadow
+    position: relative
+    animation: splash .5s 1 ease-out
+    &.disabled .hide-when-disabled
+        display: none
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        pointer-events: none
+        background: white
+        z-index: 1000
+        opacity: 1
+        animation: fade-out .3s 1 .2s ease-out forwards
 
-#logo
+@keyframes fade-out
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@keyframes splash
+    from
+        outline: 0px solid white
+    to
+        outline: 150px solid rgba(white, 0)
+
+
+// Redirect visual on options page 
+$arrow-thickness: 6px
+$arrow-line-length: 60px
+$arrow-pointer-length: 16px
+$arrow-color: $main-col
+$plus-sign-size: 26px
+
+#redirect-visual
     @include no-select
     margin-top: 1em
-    animation-name: spin
-    animation-duration: .5s
-    animation-iteration-count: 1
-    animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000)
-    filter: drop-shadow($text-shadow)
-@keyframes spin 
-    from
-        transform: rotate(0deg) scale(0)
-    to
-        transform: rotate(360deg) scale(1)
+    & > *:not(.text-input)
+        vertical-align: middle
+        filter: drop-shadow($text-shadow)
+    #click-to-change-cortana-bing
+        display: inline-block
+        cursor: pointer
+        & > *
+            vertical-align: middle
+    #search-logo
+        cursor: pointer
+    #bing-plus-cortana
+        position: relative
+        display: inline-block
+        width: $plus-sign-size
+        height: $plus-sign-size
+        &:before, &:after
+            content: ""
+            display: block
+            height: $arrow-thickness
+            width: 100%
+            position: absolute
+            top: $plus-sign-size / 2 - $arrow-thickness / 2
+            background: $arrow-color
+        &:after
+            transform-origin: center
+            transform: rotate(90deg)
+    #arrow
+        position: relative
+        display: inline-block
+        width: $arrow-line-length
+        background: $arrow-color
+        height: $arrow-thickness
+        margin-right: $arrow-thickness/2
+        &:before
+            position: absolute
+            content: ""
+            display: block
+            border: $arrow-thickness solid $arrow-color
+            height: $arrow-pointer-length
+            width: $arrow-pointer-length
+            border-bottom-width: 0
+            border-left-width: 0
+            transform: rotate(45deg)
+            transform-origin: top right
+            right: - $arrow-thickness / 2
+            top: $arrow-thickness / 2
+
+
+// Search engine picker on install page
+#search-engine-pick
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 1.5em
+    height: 128px
+    #search-logo, #custom-search
+        margin-left: 1em
+    #search-logo
+        height: 128px
+        filter: drop-shadow($text-shadow)
+        cursor: pointer
+    #search-engine
+        width: 200px
+
+// Items on the install page will fade up, reducing clutter as the user scrolls down
+.will-fade-out
+    position: relative
+    top: 0px
+    transition: top .5s, opacity .5s
+    &.fade-out
+        opacity: 0
+        top: -30px
+
+
+#success-svg-anim
+    box-shadow: $img-shadow
+    margin: 0 20px
+    max-width: 800px
+    border-radius: $border-radius
+    &.firefox
+        #browser-under-tabs-color
+            fill: rgb(32,35,64) !important
+        #browser-add-tab-icon
+            fill: rgb(184,185,194) !important
+        .browser-top-right-icons
+            fill: white !important
+        .chrome-only
+            display: none
+    &:not(.firefox)
+        .firefox-only
+            display: none
+
+
+// A pretty css dropdown made by me
+.dropdown
+    @include no-select
+    position: relative
+    display: inline-block
+    text-align: left
+    min-width: 140px
+    color: $input-col
+    font-weight: 400
+    .dropdown-text
+        cursor: pointer
+        position: relative
+        width: 100%
+        text-indent: 10px
+        line-height: 42px
+        border-bottom: 1px solid #d8d8d8
+        margin-right: 1em
+        &:after
+            position: absolute
+            right: 6px
+            top: 20px
+            content: ''
+            width: 0px
+            height: 0px
+            border-style: solid
+            border-width: 7px 6px 0 6px
+            border-color: #555 transparent transparent transparent
+    .dropdown-input
+        font-size: 0
+        outline: none !important
+        z-index: 1
+        cursor: pointer
+        position: absolute
+        top: 0
+        border: none
+        padding: 0
+        margin: 0 0 0 1px
+        background: transparent
+        text-indent: -10px
+        height: 100%
+        width: 100%
+        &:hover ~ .dropdown-text
+            background: $input-hover-bg
+        &:focus ~ .dropdown-text
+            z-index: 2
+            &:after
+                border-width: 0 6px 7px 6px
+                border-color: transparent transparent #555 transparent
+    ul
+        transition: all .2s ease
+        list-style-type: none
+        position: absolute
+        top: 30px
+        padding: 4px 0px 4px 0px
+        margin: 0
+        opacity: 0
+        visibility: hidden
+        text-indent: 10px
+        line-height: 42px
+        background: white
+        border: 1px solid #ccc
+        box-sizing: border-box
+        min-width: 100%
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
+        transform: scale(0.8, 0.8)
+        z-index: 10
+        li
+            cursor: pointer
+            position: relative
+            white-space: nowrap
+            padding-right: 10px
+            &:hover
+                background: $input-hover-bg
+            &:after
+                content: ''
+                background: $main-col
+                position: absolute
+                width: 2px
+                height: auto
+                left: -1px
+                top: 50%
+                bottom: 50%
+                transition: .2s
+            &:hover:after, &.selected:after
+                top: 0
+                bottom: 0
+    .dropdown-input:focus ~ ul
+        opacity: 1
+        visibility: visible
+        top: 43px
+        transform: scale(1, 1)
+    .dropdown-input:focus ~ .dropdown-text:before,
+    .dropdown-input:hover ~ .dropdown-text:before
+        animation: dropdown-flip .4s 1
+        animation-fill-mode: forwards
+    &.enable-animation .dropdown-text:before
+        content: ''
+        background: $main-col
+        position: absolute
+        right: 100%
+        left: 0
+        bottom: -1px
+        width: auto
+        height: 2px
+        animation: dropdown-flop .4s 1
+@keyframes dropdown-flip
+    0%
+        right: 100%
+
+    100%
+        right: 0
+@keyframes dropdown-flop
+    0%
+        right: 0
+        left: 0
+    100%
+        right: 0
+        left: 100%
+
+
+// A pretty text input made by me
+.text-input
+    width: fit-content
+    position: relative
+    display: inline-block
+    input
+        color: #333
+        box-sizing: border-box
+        letter-spacing: 1px
+        background: transparent
+        border: 0
+        padding: 7px 4px
+        border-bottom: 1px solid #ccc
+        outline: none
+        font-size: 75%
+        min-width: 300px
+        font-family: 'Open Sans', sans-serif
+        font-size: 24px
+        font-weight: 400
+        &:hover
+            background: $input-hover-bg
+        &:hover ~ span,
+        &:focus ~ span
+            animation: flip .4s 1
+            animation-fill-mode: forwards
+    span
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 100%
+        width: auto
+        height: 2px
+        background: $main-col
+        transition: 0.4s
+    &.enable-animation span
+        animation: flop .4s 1
+@keyframes flip
+    0%
+        right: 100%
+    100%
+        right: 0
+@keyframes flop
+    0%
+        right: 0
+        left: 0
+    100%
+        right: 0
+        left: 100%
+
+$checkbox-size: 28px
+
+// A pretty checkbox input made by me
+.pretty-checkbox
+    @include no-select
+    display: inline-block
+    overflow: hidden
+    padding: $checkbox-size * .1
+    color: $input-col
+    &:hover
+        background: $input-hover-bg
+    &.enable-animation > input
+        + label > span
+            transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1), background-size 100ms
+        &:checked + label > span
+            animation: checkbox-shrink-bounce 200ms cubic-bezier(0.4, 0, 0.23, 1)
+            &:before
+                animation: checkbox-check 125ms 250ms cubic-bezier(0.4, 0, 0.23, 1) forwards
+    & > input
+        display: none
+        + label
+            position: relative
+            display: flex
+            align-items: center
+            box-sizing: border-box
+            cursor: pointer
+            > span
+                display: flex
+                position: relative
+                box-sizing: border-box
+                justify-content: center
+                align-items: center
+                margin-right: $checkbox-size * .5
+                width: $checkbox-size
+                height: $checkbox-size
+                background: transparent
+                border: 2px solid $input-col
+                cursor: pointer
+                animation: checkbox-shrink-bounce 0ms linear
+            &:hover > span
+                border-color: $main-col
+        &:checked + label > span
+            border: $checkbox-size * .5 solid $main-col
+            &:before
+                content: ''
+                position: absolute
+                top: $checkbox-size * -0.1
+                left: $checkbox-size * -0.32
+                border-right: $checkbox-size * .12 solid transparent
+                border-bottom: $checkbox-size * .12 solid transparent
+                transform: rotate(45deg)
+                transform-origin: 0% 100%
+                animation: checkbox-check 0ms 0ms linear forwards
+@keyframes checkbox-shrink-bounce
+    0%
+        transform: scale(1)
+    33%
+        transform: scale(0.8)
+    100%
+        transform: scale(1)
+@keyframes checkbox-check
+    0%
+        width: 0
+        height: 0
+        border-color: white
+        transform: translate3d(0, 0, 0) rotate(45deg)
+    33%
+        width: $checkbox-size * .2
+        height: 0
+        transform: translate3d(0, 0, 0) rotate(45deg)
+    100%
+        width: $checkbox-size * .2
+        height: $checkbox-size * .5
+        border-color: white
+        transform: translate3d(0, $checkbox-size * -0.5, 0) rotate(45deg)

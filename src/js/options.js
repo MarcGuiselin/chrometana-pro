@@ -15,8 +15,6 @@ let data = {},
     $customSearch = document.getElementById('custom-search'),
     $customSearchInput = $customSearch.querySelector('input');
 
-
-
 // Whenever data is changed, update data
 chrome.storage.onChanged.addListener(changes => {
     if (changes && changes.data && changes.data.newValue)
@@ -28,7 +26,6 @@ chrome.storage.onChanged.addListener(changes => {
 chrome.storage.local.get('data', res => {
     data = res.data;
     dataUpdate();
-    $content.classList.add('show');
 });
 
 // On options change
