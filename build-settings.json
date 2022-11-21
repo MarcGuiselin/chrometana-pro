@@ -4,7 +4,9 @@
             "name": "Chrometana Pro",
             "browserpage": "https://chrome.google.com/webstore/detail/chrometana-redirect-bing/lllggmgeiphnciplalhefnbpddbadfdi/reviews",
             "browser": "Google Chrome",
-            "maincolor": "#4285F4",
+            "theme1": "#39B6F3",
+            "theme2": "#4285F4",
+            "theme3": "#4B57F5",
             "rundownloaddirection": "Double click on the installer to run it",
             "downloadfix": "download",
             "manifestappend": ""
@@ -13,7 +15,9 @@
             "name": "Foxtana Pro",
             "browserpage": "https://addons.mozilla.org/en-US/firefox/addon/foxtana-pro-redirect-cortana",
             "browser": "Firefox",
-            "maincolor": "#F48742",
+            "theme1": "#F4B542",
+            "theme2": "#F48742",
+            "theme3": "#F5744D",
             "rundownloaddirection": "Click on the installer to run it",
             "downloadfix": "target=\"_blank\"",
             "manifestappend": "\"applications\": {\"gecko\": {\"id\": \"extension@foxtana.com\", \"strict_min_version\": \"42.0\"}},"

@@ -3,21 +3,184 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Success</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i|Montserrat:300,500" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
     <div id="version"></div>
     <div id="copyright">Copyright &copy; <span>2018</span> Marc Guiselin</div>
-    <div id="content">
-        <img src="images/logo.png" id="logo" draggable="false"/>
+    <div id="content" class="show">
         <h1>Thats it!</h1>
         <div class="separator"></div>
-        <p>Cortana will now use <%= browser %> and your favorite search engine instead of microsoft edge and bing for all its web searches!</p>
-        <p>Try asking cortana to "open example.com" or try typing "what is life?" in the windows search bar and press enter.</p>
-        <p>To change <%= name %>'s settings, click on the little icon in the upper-left corner of <%= browser %> or on the link below.</p>
+        <p class="center">Cortana will now use <%= browser %> and your favorite search engine! &#x1F601;</p>
+        <svg id="success-svg-anim" viewBox="0 0 1920 1080" style="fill-rule:evenodd;clip-rule:evenodd;">
+            <g clip-path="url(#_clip1)">
+                <g id="camera">
+                    <!-- background under everything -->
+                    <rect x="0"  y="0"    width="1920" height="1040" style="fill:url(#_Linear1);"/>
+                    <rect x="0"  y="0"    width="1920" height="1040" style="fill:url(#_Linear2);"/>
+                    <!-- browser window -->
+                    <g id="browser" style="filter:url(#_DropShadow);">
+                        <!-- window background -->
+                        <rect x="259" y="114" width="1402" height="852" style="fill:rgb(24,131,215);"/>
+                        <rect x="260" y="115" width="1400" height="850" style="fill:white;"/>
+                        <!-- tabs top -->
+                        <rect id="browser-under-tabs-color" x="260" y="115" width="1400" height="60" style="fill:rgb(222,225,230);"/>
+                        <rect class="firefox-only" x="270" y="125" width="342" height="70" style="fill:white;"/>
+                        <path class="chrome-only" d="M260.14 174.27C266.35 172.82 271.02 167.32 271.2 160.71L271.2 140.32C271.2 132.42 277.62 126 285.52 126L598.88 126C606.78 126 613.2 132.42 613.2 140.32L613.2 144.54L613.22 144.54L613.22 160.31C613.22 168.22 619.64 174.64 627.54 174.64L627.47 183.43L260.14 183.43L260.14 174.27z" style="fill:white;"/>
+                        <path class="browser-top-right-icons" d="M1633.26 132.58L1639.02 126.82L1640.09 127.9L1634.34 133.65L1640.09 139.41L1639.02 140.48L1633.26 134.73L1627.51 140.48L1626.43 139.41L1632.19 133.65L1626.43 127.9L1627.51 126.82L1633.26 132.58z" style="fill:rgb(92,92,92);"/>
+                        <path class="browser-top-right-icons" d="M1585.5 127L1585.5 140L1572.5 140L1572.5 127L1585.5 127zM1583.96 128.54L1574.04 128.54L1574.04 138.46L1583.96 138.46L1583.96 128.54z" style="fill:rgb(92,92,92);"/>
+                        <rect class="browser-top-right-icons" x="1518.1" y="132.42" width="12.95" height="1.52" style="fill:rgb(92,92,92);"/>
+                        <g id="close-chrome">
+                            <rect x="1606" y="115" width="54" height="36" style="fill:rgb(232,17,35);"/>
+                            <path d="M1633.26 132.58L1639.02 126.82L1640.09 127.9L1634.34 133.65L1640.09 139.41L1639.02 140.48L1633.26 134.73L1627.51 140.48L1626.43 139.41L1632.19 133.65L1626.43 127.9L1627.51 126.82L1633.26 132.58z" style="fill:white;"/>
+                        </g>
+                        <image id="browser-favicon" transform="matrix(0.2,0,0,0.2,278,140)" xlink:href="images/google.png" x="0" y="0" width="128px" height="128px"/>
+                        <path d="M585.5 149.637L593.145 141.992L595.78 144.627L588.135 152.272L595.78 159.918L593.145 162.553L585.5 154.907L577.855 162.553L575.22 159.918L582.865 152.272L575.22 144.627L577.855 141.992L585.5 149.637z" style="fill:rgb(93,96,99);"/>
+                        <path id="browser-add-tab-icon" d="M630.312 150.922L638.149 150.922L638.149 143.085L640.851 143.085L640.851 150.922L648.688 150.922L648.688 153.623L640.851 153.623L640.851 161.46L638.149 161.46L638.149 153.623L630.312 153.623L630.312 150.922z" style="fill:rgb(93,96,99);"/>
+                        <text id="browser-page-title" x="310px" y="161px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:22px;fill:rgb(106,106,106);">Search - Google...</text>
+                        <!-- url box and icons -->
+                        <path d="M307.69 206.18L307.69 211.67L287.92 211.67L290.65 219.9L279.68 208.93L290.65 197.95L287.92 206.18L307.69 206.18z" style="fill:rgb(186,188,190);"/>
+                        <path d="M335.09 211.67L335.09 206.18L354.86 206.18L352.13 197.96L363.1 208.93L352.13 219.9L354.86 211.67L335.09 211.67z" style="fill:rgb(186,188,190);"/>
+                        <path d="M411.98 198.91L416.3 194.6L416.52 207.07L404.04 206.85L408.36 202.53C406.71 201.27 404.64 200.51 402.39 200.51C396.98 200.51 392.58 204.91 392.58 210.32C392.58 215.74 396.98 220.13 402.39 220.13C407.3 220.13 411.36 216.53 412.09 211.83L417.23 211.83C416.47 219.35 410.11 225.23 402.39 225.23C394.17 225.23 387.49 218.55 387.49 210.32C387.49 202.09 394.17 195.41 402.39 195.41C406.04 195.41 409.39 196.73 411.98 198.91z" style="fill:rgb(128,128,128);"/>
+                        <rect class="firefox-only" x="448" y="190" width="1075" height="38" style="fill:rgb(241,243,244);"/>
+                        <rect class="chrome-only" x="433" y="190" width="1090" height="38" style="fill:rgb(241,243,244);" rx="19" ry="19"/>
+                        <text id="browser-search-url" x="456" y="216" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:22px;fill:rgb(106,106,106);">https://www.google.com/</text>
+                        <path d="M1579.25 208.92L1584.78 208.91C1584.82 214.81 1581.81 220.56 1576.38 223.74C1570.95 226.92 1564.47 226.73 1559.34 223.81L1562.06 218.98C1565.52 220.95 1569.9 221.08 1573.57 218.93C1577.24 216.79 1579.27 212.91 1579.25 208.92z" style="fill:rgb(251,188,5);"/>
+                        <path d="M1562.06 198.87L1559.34 194.05C1564.47 191.13 1570.95 190.94 1576.38 194.12C1581.81 197.29 1584.82 203.04 1584.78 208.94L1579.25 208.94C1579.27 204.95 1577.24 201.07 1573.57 198.92C1569.9 196.77 1565.52 196.9 1562.06 198.87z" style="fill:rgb(234,67,53);"/>
+                        <path d="M1562.16 219.03L1559.4 223.86C1554.34 220.88 1550.94 215.32 1550.94 208.97C1550.94 202.61 1554.34 197.06 1559.4 194.08L1562.16 198.91C1558.75 200.92 1556.45 204.68 1556.45 208.97C1556.45 213.26 1558.75 217.01 1562.16 219.03z" style="fill:rgb(52,168,83);"/>
+                        <path d="M1571.48 195.61C1578.7 197.58 1582.96 205.1 1580.97 212.41C1578.98 219.72 1571.51 224.06 1564.29 222.1C1557.07 220.14 1552.81 212.61 1554.8 205.3C1556.78 198 1564.26 193.65 1571.48 195.61zM1570.76 198.28C1576.53 199.85 1579.92 205.86 1578.34 211.7C1576.75 217.53 1570.78 221 1565.01 219.43C1559.24 217.87 1555.85 211.86 1557.43 206.02C1559.02 200.18 1564.99 196.72 1570.76 198.28z" style="fill:rgb(66,133,244);"/>
+                        <path d="M1641.45 218.34L1641.45 222.89L1611.69 222.89L1611.69 218.34L1641.45 218.34zM1641.45 206.28L1641.45 210.83L1611.69 210.83L1611.69 206.28L1641.45 206.28zM1641.45 194.23L1641.45 198.79L1611.69 198.79L1611.69 194.23L1641.45 194.23z" style="fill:rgb(187,187,187);"/>
+                        <rect x="260" y="242" width="1400" height="1" style="fill:rgb(182,180,182);"/>
+                        <!-- different websites -->
+                        <g id="page-search-engine">
+                            <rect x="260" y="243" width="1400" height="157" style="fill:rgb(250,250,250);"/>
+                            <rect x="260" y="400" width="1400" height="1" style="fill:rgb(235,235,235);"/>
+                            <image id="search-engine-icon" xlink:href="images/google.png" x="280" y="258" width="128px" height="128px"/>
+                            <rect x="425" y="293" width="539" height="58" style="fill:#E6E6E6;"/>
+                            <rect x="426" y="294" width="537" height="56" style="fill:white;"/>
+                            <text id="search-query" x="443" y="333" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:40px;fill:rgb(106,106,106);">Search</text>
+                            <g transform="matrix(1.5,0,0,1.5,-440,-137)">
+                                <path d="M917.31 308.63C919.13 305.91 918.85 302.19 916.45 299.79C913.72 297.07 909.3 297.07 906.57 299.79C903.85 302.52 903.85 306.94 906.57 309.67C908.97 312.07 912.69 312.35 915.41 310.52L920.14 315.25L922.03 313.35L917.31 308.63zM907.74 300.96C905.65 303.04 905.65 306.42 907.74 308.5C909.82 310.58 913.2 310.58 915.28 308.5C917.37 306.42 917.37 303.04 915.28 300.96C913.2 298.87 909.82 298.87 907.74 300.96z" style="fill:rgb(153,153,153);"/>
+                            </g>
+                            <rect class="result-box" x="280" y="430" width="1200" height="105" style="fill:rgb(230,230,230);"/>
+                            <rect class="result-box" x="280" y="565" width="800" height="105" style="fill:rgb(230,230,230);"/>
+                            <rect class="result-box" x="280" y="700" width="1000" height="105" style="fill:rgb(230,230,230);"/>
+                            <rect class="result-box" x="280" y="835" width="1200" height="105" style="fill:rgb(230,230,230);"/>
+                        </g>
+                        <g id="page-netflix" transform="matrix(1,0,0,1,260,243)">
+                            <rect x="0" y="0" width="1400" height="722" style="fill:rgb(20,20,20);"/>
+                            <rect x="1085.5" y="20.2" width="27.7" height="27.7" style="fill:white;"/>
+                            <rect x="1132.4" y="26.9" width="35.3" height="14.2" style="fill:white;"/>
+                            <rect x="1185.3" y="26.9" width="35.3" height="14.2" style="fill:white;"/>
+                            <rect x="1241.7" y="22.7" width="22.6" height="22.6" style="fill:white;"/>
+                            <rect x="1287.9" y="18" width="32.1" height="32.1" style="fill:rgb(48,191,122);"/>
+                            <rect x="195.3" y="25" width="92.5" height="18.1" style="fill:white;"/>
+                            <rect x="316.7" y="25" width="92.5" height="18.1" style="fill:white;fill-opacity:0.5;"/>
+                            <rect x="437.6" y="25" width="92.5" height="18.1" style="fill:white;fill-opacity:0.5;"/>
+                            <rect x="558.4" y="25" width="92.5" height="18.1" style="fill:white;fill-opacity:0.5;"/>
+                            <path d="M143.199,33.874L138.354,22.197L143.248,22.197L145.622,27.769L148.238,22.052L152.89,22.052L147.657,33.971L152.884,47.179L147.709,46.506L145.477,40.318L142.763,45.745L138.403,45.066L143.199,33.874ZM59.844,46.716L59.844,21.907L63.762,21.907L68.51,34.133L68.51,21.788L72.783,21.788L72.783,45.518L68.391,45.908L64.118,34.252L64.118,46.305L59.844,46.716ZM87.266,25.824L80.381,25.824L80.381,30.81L85.248,30.81L85.248,34.846L80.262,35.019L80.392,41.314L87.266,40.662L87.266,44.42L76.199,45.439L76.226,21.907L87.266,21.907L87.266,25.824ZM131.463,22.033L135.544,22.033L135.544,44.868L131.39,44.657L131.463,22.033ZM121.348,22.076L121.348,40.093L128.164,40.57L128.121,44.347L117.528,44.13L117.528,22.076L121.348,22.076ZM101.986,25.94L98.035,25.94L98.011,43.974L93.93,44.142L93.955,26.07L89.961,25.94L89.961,22.076L101.986,22.076L101.986,25.94ZM115.27,21.989L115.27,25.897L108.237,25.897L108.237,30.932L113.49,30.932L113.49,35.057L108.541,35.057L108.541,43.869L104.374,43.869L104.374,21.989L115.27,21.989Z" style="fill:rgb(229,9,20);"/>
+                            <text x="71" y="147" style="font-family:'Helvetica';font-weight:700;font-size: 40px;fill:white;">TV Shows</text>
+                            <rect class="result-box" x="70" y="170" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                            <rect class="result-box" x="394" y="170" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                            <rect class="result-box" x="714" y="170" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                            <rect class="result-box" x="1032" y="170" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                            <text x="71" y="455" style="font-family:'Helvetica';font-weight:700;font-size: 40px;fill:white;">Trending Now</text>
+                            <rect class="result-box" x="70" y="478" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                            <rect class="result-box" x="394" y="478" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                            <rect class="result-box" x="714" y="478" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                            <rect class="result-box" x="1032" y="478" width="297" height="166" style="fill:rgb(158,16,23);"/>
+                        </g>
+                    </g>
+                    <!-- search menu -->
+                    <g id="menu" style="filter:url(#_DropShadow)">
+                        <rect x="0" y="640" width="48" height="440" style="fill:rgb(16,16,16);"/>
+                        <rect x="48" y="640" width="344" height="440" style="fill:black;"/>
+                        <g id="menu-search-results">
+                            <rect x="48" y="640" width="344" height="440" style="fill:white;"/>
+                            <rect x="60" y="654" width="20" height="20" style="fill:rgb(230,230,230);"/>
+                            <rect x="110" y="654" width="20" height="20" style="fill:rgb(230,230,230);"/>
+                            <rect x="160" y="654" width="20" height="20" style="fill:rgb(230,230,230);"/>
+                            <rect x="48" y="688" width="344" height="1" style="fill:rgb(230,230,230);"/>
+                            <g id="search-results">
+                                <rect x="48" y="722" width="344" height="62" style="fill:rgb(179,215,243);"/>
+                                <text id="windows-search-query" x="104" y="750" style="font-family:'ArialMT', 'Arial', sans-serif;font-size: 14px;fill: black;">Search</text>
+                                <text x="104" y="766" style="font-family:'ArialMT', 'Arial', sans-serif;font-size: 12px;fill: black;opacity: .7;">See web results</text>
+                                <path transform="matrix(1,0,0,1,0,82)" d="M72.475,671.948C70.928,670.053 70,667.634 70,665C70,658.929 74.929,654 81,654C87.071,654 92,658.929 92,665C92,671.071 87.071,676 81,676C78.283,676 75.794,675.013 73.874,673.377L61.352,685.899L59.937,684.485L72.475,671.948ZM81,656C85.967,656 90,660.033 90,665C90,669.967 85.967,674 81,674C76.033,674 72,669.967 72,665C72,660.033 76.033,656 81,656Z" style="fill:black;"/>
+                            </g>
+                        </g>
+                    </g>
+                    <!-- bottom bar -->
+                    <rect x="0"  y="1040" width="1920" height="40"   style="fill:rgb(11,10,15);"/>
+                    <rect id="original-search-box" x="48" y="1040" width="344" height="40" style="fill:rgb(51,51,51);"/>
+                    <!-- bottom search box -->
+                    <text x="86px" y="1065px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(160,160,160);">Type here to search</text>
+                    <path d="M68.196,1048.64C74.479,1048.64 79.581,1053.74 79.581,1060.03C79.581,1066.31 74.479,1071.41 68.196,1071.41C61.912,1071.41 56.81,1066.31 56.81,1060.03C56.81,1053.74 61.912,1048.64 68.196,1048.64ZM68.196,1050.15C73.644,1050.15 78.068,1054.58 78.068,1060.03C78.068,1065.48 73.644,1069.9 68.196,1069.9C62.747,1069.9 58.324,1065.48 58.324,1060.03C58.324,1054.58 62.747,1050.15 68.196,1050.15Z" style="fill:white;fill-opacity:0.3;"/>
+                    <path d="M68.196,1050.15C73.644,1050.15 78.068,1054.58 78.068,1060.03C78.068,1065.48 73.644,1069.9 68.196,1069.9C62.747,1069.9 58.324,1065.48 58.324,1060.03C58.324,1054.58 62.747,1050.15 68.196,1050.15ZM68.196,1052.01C72.623,1052.01 76.218,1055.6 76.218,1060.03C76.218,1064.45 72.623,1068.05 68.196,1068.05C63.768,1068.05 60.173,1064.45 60.173,1060.03C60.173,1055.6 63.768,1052.01 68.196,1052.01Z" style="fill:white;fill-opacity:0.7;"/>
+                    <path d="M32.022,1068.11L22.972,1066.93L22.972,1060.03L32.022,1060.03L32.022,1068.11ZM15.973,1060.03L21.988,1060.03L21.988,1066.81L15.973,1066.02L15.973,1060.03ZM21.988,1053.19L21.988,1059.04L15.973,1059.04L15.973,1053.94L21.988,1053.19ZM32.022,1059.04L22.972,1059.04L22.972,1053.07L32.022,1051.94L32.022,1059.04Z" style="fill:white;"/>
+                    <!-- clicked search box -->
+                    <g id="clicked-search-box">
+                        <rect x="48" y="1040" width="344" height="40" style="fill:rgb(243,243,243);"/>
+                        <text id="search-typed-text" x="86" y="1065" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:#222;">Type here to search</text>
+                        <path d="M65.805,1060.94C64.333,1058.76 64.563,1055.76 66.496,1053.83C68.689,1051.64 72.251,1051.64 74.444,1053.83C76.638,1056.03 76.638,1059.59 74.444,1061.78C72.512,1063.71 69.519,1063.94 67.333,1062.47L61.113,1068.69L59.584,1067.16L65.805,1060.94ZM73.508,1054.77C75.184,1056.44 75.184,1059.17 73.508,1060.84C71.831,1062.52 69.109,1062.52 67.432,1060.84C65.756,1059.17 65.756,1056.44 67.432,1054.77C69.109,1053.09 71.831,1053.09 73.508,1054.77Z" style="fill:rgb(53,53,53);"/>
+                    </g>
+                    <!-- cursor that overlays everything -->
+                    <circle id="click-ripple" cx="950" cy="590" r="50" style="fill:#F54A4A;"/>
+                    <g id="cursor" style="filter:url(#_CursorShadow);">
+                        <path d="M943.53 578.82L943.44 603.63L949.22 600.09L952.93 606.33L957.65 603.37L954.56 597.72L960.68 596.28L943.53 578.82z" style="fill:white;"/>
+                        <path d="M944.01 580.04L944.01 602.73L949.36 599.37L953.07 605.72L956.98 603.17L953.69 597.35L959.77 595.97L944.01 580.04z" style="fill:rgb(11,11,11);"/>                            
+                    </g>
+                </g>
+            </g>
+            <defs>
+                <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1920,0,0,1920,0,520.007)"><stop offset="0" style="stop-color:rgb(57,182,243);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(66,132,244);stop-opacity:1"/></linearGradient>
+                <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(6.36825e-14,1040.01,-1040.01,6.36825e-14,1920,0)"><stop offset="0" style="stop-color:rgb(75,87,245);stop-opacity:0"/><stop offset="1" style="stop-color:rgb(75,87,245);stop-opacity:1"/></linearGradient>
+            </defs>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="1920" height="1080"/>
+            </clipPath>
+            <filter id="_DropShadow" height="130%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="2"/> <!-- stdDeviation is how much to blur -->
+                <feOffset dx="2" dy="2" result="offsetblur"/> <!-- how much to offset -->
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.5"/> <!-- slope is the opacity of the shadow -->
+                </feComponentTransfer>
+                <feMerge> 
+                    <feMergeNode/> <!-- this contains the offset blurred image -->
+                    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+                </feMerge>
+            </filter>
+            <filter id="_CursorShadow" height="130%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="1"/> <!-- stdDeviation is how much to blur -->
+                <feOffset dx="2" dy="0" result="offsetblur"/> <!-- how much to offset -->
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.5"/> <!-- slope is the opacity of the shadow -->
+                </feComponentTransfer>
+                <feMerge> 
+                    <feMergeNode/> <!-- this contains the offset blurred image -->
+                    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+                </feMerge>
+            </filter>
+        </svg>
+        <div class="separator"></div>
+        <h3>3 Quick Tips:</h3>
+        <ol>
+            <li>
+                You can also press the
+                <svg width="20" height="20" viewBox="0 0 17 17" version="1.1" style="vertical-align: middle;display: inline-block;transform: translateX(1px);">
+                    <path d="M16.05 16.17L7 14.99L7 8.09L16.05 8.09L16.05 16.17zM0 8.09L6.02 8.09L6.02 14.87L0 14.08L0 8.09zM6.02 1.25L6.02 7.1L0 7.1L0 2L6.02 1.25zM16.05 7.1L7 7.1L7 1.13L16.05 0L16.05 7.1z" style="fill: currentColor;"/>
+                </svg>
+                <b>windows key</b> on your keyboard and start typing to use cortana.
+            </li>
+            <li>Some keywords like <b>&ldquo;Amazon&rdquo;</b> or <b>&ldquo;Netflix&rdquo;</b> will bring you straight to those websites.</li>
+            <li>Typing <b>&ldquo;web:&rdquo;</b> in front of your search will always open it up in <%= browser %></li>
+        </ol>
+        <p>To change search settings, click on the <%= name %> icon in the upper-left corner of <%= browser %> or on the link below.</p>
         <a href="options.html">Options</a>
     </div>
+    <script src="js/vendor/gsap.js"></script>
+    <script src="js/vendor/gsap-textpugin.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/success.js"></script>
 </body>
 </html>

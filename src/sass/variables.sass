@@ -1,7 +1,21 @@
 // variable definitions
 
-$main-col: <%= maincolor %> //1C9FE7
+$theme1: <%= theme1 %>
+$theme2: <%= theme2 %>
+$theme3: <%= theme3 %>
+$main-col: $theme2
 $input-col: #7f7f7f
 $read-text: #4e4e4e
 $input-hover-bg: #e8e8e8 //f2f2f2
-$text-shadow: 1px 1px 2px rgba(0, 0, 0, .2)
+$text-shadow: none //1px 1px 2px rgba(0, 0, 0, .2)
+$img-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4)
+
+$border-radius: 10px
+
+@mixin no-select
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
