@@ -24,7 +24,7 @@ function rulesChangeHash(data){
 // Reset declarative net request rules
 function rulesReset(data){
     if(data && (!data.newValue || rulesChangeHash(data.newValue) != rulesChangeHash(data.oldValue))){
-        const { enabled, cortanaBing, customSearchUrl } = data.newValue;
+        const { enabled, cortanaBing, customSearchUrl } = data.newValue || data;
 
         const maxRules = 4; // the maximum number of rules that can be set below
         const rules = [];
@@ -95,7 +95,7 @@ function rulesReset(data){
 }
 
 // Whenever data is changed, update declarative net request rules
-chrome.storage.onChanged.addListener(({ data }) => rulesReset(data));
+chrome.storage.onChanged.addListener((res) => res && res.data && rulesReset(res.data));
 
 // Open options page when the user clicks on the browser action icon
 chrome.action.onClicked.addListener(() => chrome.runtime.openOptionsPage());
