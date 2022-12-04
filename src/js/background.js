@@ -110,8 +110,8 @@ chrome.runtime.onInstalled.addListener(details => {
         });
 
         if(details.reason == 'install'){
-            // Only show install tutorial if user is on any version of windows
-            if(navigator.userAgent.includes('Windows NT 10.0'))
+            // Only show install tutorial if user is on any version of windows and not using edge
+            if(navigator.userAgent.includes('Windows NT 10.0') && !navigator.userAgent.includes('Edg'))
                 chrome.tabs.create({url: 'install.html'});
             else
                 chrome.runtime.openOptionsPage();
