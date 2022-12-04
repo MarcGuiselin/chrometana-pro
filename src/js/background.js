@@ -24,9 +24,8 @@ function rulesChangeHash(data){
     return data ? `${data.enabled}-${data.cortanaBing}-${data.customSearchUrl}-${data.searchEngine}` : ''
 }
 
-// Direct redirects for edge browser
-// Workaround for https://github.com/MarcGuiselin/chrometana-pro/issues/15
-function edgeRuleSubstitution(searchEngine, customSearchUrl){
+// Direct redirects to user selected search engine
+function searchEngineSubstitution(searchEngine, customSearchUrl){
     switch(searchEngine){
         case 0:
             return 'https://www.google.com/search?q=\\1';
@@ -46,7 +45,7 @@ function rulesReset(data){
     if(data && (!data.newValue || rulesChangeHash(data.newValue) != rulesChangeHash(data.oldValue))){
         const { enabled, cortanaBing, searchEngine, customSearchUrl } = data.newValue || data;
 
-        const maxRules = 4; // the maximum number of rules that can be set below
+        const maxRules = 5; // the maximum number of rules that can be set below
         const rules = [];
 
         // On a successful installation of edgedeflector, redirect to the success page
@@ -79,6 +78,8 @@ function rulesReset(data){
 
         // Only perform redirect operations if this extension is enabled
         if(enabled && (cortanaBing != 4 || customSearchUrl.trim())){
+            let regexSubstitution = searchEngineSubstitution(searchEngine, customSearchUrl);
+
             // If user selected only bing requests to be redirected, allow cortana requests
             if(cortanaBing == 2){
                 rules.push({
@@ -92,21 +93,39 @@ function rulesReset(data){
                 });
             }
 
-            // Redirect request to redirect page
+            // Redirect cortana searches through redirect page
             rules.push({
                 condition: {
-                    regexFilter: `${BING_SEARCH_MATCHER}${PRE_QUERY_MATCHER}q=([^&]+)${cortanaBing == 1 ? CORTANA_MATCHER : ''}`,
+                    regexFilter: `${BING_SEARCH_MATCHER}${PRE_QUERY_MATCHER}q=([^&]+)${CORTANA_MATCHER}`,
                     resourceTypes: ['main_frame'],
                 },
                 action: {
                     type: 'redirect',
                     redirect: {
+                        // Edge always blocks the redirect page, so just use search engine substitution instead
+                        // Fix for https://github.com/MarcGuiselin/chrometana-pro/issues/15
                         regexSubstitution: isEdge ? 
-                            edgeRuleSubstitution(searchEngine, customSearchUrl) : 
+                            regexSubstitution : 
                             `${chrome.runtime.getURL('redirect.html')}?q=\\1`,
                     },
                 },
             });
+
+            // Redirect direct bing searches
+            if(cortanaBing != 1){
+                rules.push({
+                    condition: {
+                        regexFilter: `${BING_SEARCH_MATCHER}${PRE_QUERY_MATCHER}q=([^&]+)`,
+                        resourceTypes: ['main_frame'],
+                    },
+                    action: {
+                        type: 'redirect',
+                        redirect: {
+                            regexSubstitution,
+                        },
+                    },
+                });
+            }
         }
 
         chrome.declarativeNetRequest.updateDynamicRules({
