@@ -2,6 +2,7 @@ let data = {},
 
     $content = document.getElementById('content'),
     $count = document.getElementById('count'),
+    $countContainer = document.getElementById('count-container'),
     $enabled = document.getElementById('enabled'),
     $cortanaBing = document.getElementById('cortana-bing'),
     $cortanaBingText = $cortanaBing.querySelector('.dropdown-text'),
@@ -14,6 +15,9 @@ let data = {},
     $clickToChangeCortanaBing = document.getElementById('click-to-change-cortana-bing'),
     $customSearch = document.getElementById('custom-search'),
     $customSearchInput = $customSearch.querySelector('input');
+
+// The extension is running in the edge browser
+const isEdge = navigator.userAgent.includes('Edg');
 
 // Whenever data is changed, update data
 chrome.storage.onChanged.addListener(changes => {
@@ -78,7 +82,9 @@ $cortanaBing.addEventListener('mouseover', () => $cortanaBing.classList.add('ena
 $searchEngine.addEventListener('mouseover', () => $searchEngine.classList.add('enable-animation'));
 $customSearch.addEventListener('mouseover', () => $customSearch.classList.add('enable-animation'));
 
-
+// Hide the count container in edge, since the counts don't work in edge.
+// Noted in: https://github.com/MarcGuiselin/chrometana-pro/issues/16
+$countContainer.style.display = isEdge ? 'none' : 'auto';
 
 // Runs whenever options change
 function dataUpdate(){
