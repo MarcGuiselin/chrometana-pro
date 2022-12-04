@@ -16,15 +16,35 @@ const BING_SEARCH_MATCHER = `${BING_MATCHER}search\\?`;
 // WNSFC2:           click "see more results on bing.com" when you ask something like "what's the weather like"
 const CORTANA_MATCHER = `${PRE_QUERY_MATCHER}form=(?:WNSGPH|WNSBOX|WNSSCX|WNSFC2)`;
 
+// The extension is running in the edge browser
+const isEdge = navigator.userAgent.includes('Edg');
+
 // This hash changes whenever redirection rules need to change
 function rulesChangeHash(data){
-    return data ? `${data.enabled}-${data.cortanaBing}-${data.customSearchUrl}` : ''
+    return data ? `${data.enabled}-${data.cortanaBing}-${data.customSearchUrl}-${data.searchEngine}` : ''
+}
+
+// Direct redirects for edge browser
+// Workaround for https://github.com/MarcGuiselin/chrometana-pro/issues/15
+function edgeRuleSubstitution(searchEngine, customSearchUrl){
+    switch(searchEngine){
+        case 0:
+            return 'https://www.google.com/search?q=\\1';
+        case 1:
+            return 'https://www.duckduckgo.com?ia=web&q=\\1';
+        case 2:
+            return 'https://search.yahoo.com/search?p=\\1';
+        case 3:
+            return 'https://www.baidu.com/s?wd=\\1';
+        case 4:
+            return `${customSearchUrl.replace(/^(https?:\/\/)?/i, 'https://')}\\1'`;
+    }
 }
 
 // Reset declarative net request rules
 function rulesReset(data){
     if(data && (!data.newValue || rulesChangeHash(data.newValue) != rulesChangeHash(data.oldValue))){
-        const { enabled, cortanaBing, customSearchUrl } = data.newValue || data;
+        const { enabled, cortanaBing, searchEngine, customSearchUrl } = data.newValue || data;
 
         const maxRules = 4; // the maximum number of rules that can be set below
         const rules = [];
@@ -81,7 +101,9 @@ function rulesReset(data){
                 action: {
                     type: 'redirect',
                     redirect: {
-                        regexSubstitution: chrome.runtime.getURL('redirect.html') + '?q=\\1',
+                        regexSubstitution: isEdge ? 
+                            edgeRuleSubstitution(searchEngine, customSearchUrl) : 
+                            `${chrome.runtime.getURL('redirect.html')}?q=\\1`,
                     },
                 },
             });
@@ -111,7 +133,7 @@ chrome.runtime.onInstalled.addListener(details => {
 
         if(details.reason == 'install'){
             // Only show install tutorial if user is on any version of windows and not using edge
-            if(navigator.userAgent.includes('Windows NT 10.0') && !navigator.userAgent.includes('Edg'))
+            if(navigator.userAgent.includes('Windows NT 10.0') && !isEdge)
                 chrome.tabs.create({url: 'install.html'});
             else
                 chrome.runtime.openOptionsPage();
