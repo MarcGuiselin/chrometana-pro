@@ -63,7 +63,7 @@ function rulesReset(data){
             if(cortanaBing == 2){
                 rules.push({
                     condition: {
-                        regexFilter: `${BING_SEARCH_MATCHER}.*${CORTANA_MATCHER}`,
+                        regexFilter: `${BING_SEARCH_MATCHER}${CORTANA_MATCHER}`,
                         resourceTypes: ['main_frame'],
                     },
                     action: {
@@ -89,7 +89,7 @@ function rulesReset(data){
 
         chrome.declarativeNetRequest.updateDynamicRules({
             removeRuleIds: Array.from({ length: maxRules }, (_, index) => index + 1),
-            addRules: rules.map((rule, index) => ({ ...rule, id: index + 1, priority: index + 1 })),
+            addRules: rules.map((rule, index) => ({ ...rule, id: index + 1, priority: maxRules - index + 1 })),
         });
     }
 }
