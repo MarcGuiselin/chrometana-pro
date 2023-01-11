@@ -70,7 +70,7 @@ chrome.storage.onChanged.addListener(changes => {
 // Redirect bing searches using the onBeforeRequest api
 chrome.webRequest.onBeforeRequest.addListener(
     details => ({
-        redirectUrl: redirectBingUrl(details.url) || details.url
+        redirectUrl: redirectBingUrl(details.url)
     }),
     {
         urls: ['*://*.bing.com/*'],
