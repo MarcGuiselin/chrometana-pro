@@ -10,7 +10,7 @@ let data = {
 // Process a bing url and return the url to redirect to
 function redirectBingUrl(url){
     // On a successful installation of edgedeflector, show the success page
-    if(/https?:\/\/(www\.)?bing\.com\/search\?successfuledgedeflectorinstall/i.test(url))
+    if(url == 'https://www.bing.com/#notify-redirect-extension-successful-wedge-install')
         return chrome.extension.getURL('success.html');
 
     // Only redirect if enabled
