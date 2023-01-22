@@ -20,7 +20,7 @@
             "theme3": "#F5744D",
             "rundownloaddirection": "Click on the installer to run it",
             "downloadfix": "target=\"_blank\"",
-            "manifestappend": "\"applications\": {\"gecko\": {\"id\": \"extension@foxtana.com\", \"strict_min_version\": \"42.0\"}},"
+            "manifestappend": "\"author\": \"Marc Guiselin\", \"browser_specific_settings\": {\"gecko\": {\"id\": \"extension@foxtana.com\", \"strict_min_version\": \"58.0\"}},"
         }
     }
 }

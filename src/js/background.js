@@ -11,7 +11,7 @@ let data = {
 function redirectBingUrl(url){
     // On a successful installation of edgedeflector, show the success page
     if(url == 'https://www.bing.com/#notify-redirect-extension-successful-wedge-install')
-        return chrome.extension.getURL('success.html');
+        return chrome.runtime.getURL('success.html');
 
     // Only redirect if enabled
     if(data.enabled){
