@@ -7,3 +7,8 @@
 1. Install yarn package manager
 2. Install deps with the command `yarn`
 3. Build with the command `yarn build-firefox`
+
+## Vendor Sources
+
+- [GSAP 3.11.3 (unminified dist)](https://github.com/greensock/GSAP/blob/3.11.3/dist/gsap.js) [Github](https://github.com/greensock/GSAP)
+- [GSAP TextPlugin 3.11.3 (unminified dist)](https://github.com/greensock/GSAP/blob/3.11.3/dist/TextPlugin.js) [Github](https://github.com/greensock/GSAP)
