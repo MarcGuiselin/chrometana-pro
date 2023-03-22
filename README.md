@@ -36,7 +36,7 @@ Any search you make using windows search will automatically be opened in your br
 
 ### For Firefox
 
-1. Install the official release from [Firefox Browser Addons](https://chrome.google.com/webstore/detail/chrometana-pro-redirect-c/lllggmgeiphnciplalhefnbpddbadfdi)
+1. Install the official release from [Firefox Browser Addons](https://addons.mozilla.org/en-US/firefox/addon/foxtana-pro-redirect-cortana)
 2. Follow the setup guide
 3. A success page will open to indicate you've successfully completed the setup!
 
